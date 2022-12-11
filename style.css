@@ -1,0 +1,180 @@
+:root {
+  --background-color: rgb(6, 11, 25);
+  --border-color: rgb(255, 255, 255, 0.1);
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0px;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+a,
+p,
+span {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav > .nav-section {
+  padding: 3rem 2rem;
+  display: flex;
+  gap: 1rem;
+  border-left: 1px solid var(--border-color);
+  justify-content: center;
+  align-items: center;
+}
+
+#nav-logo-section {
+  justify-content: flex-start;
+}
+
+#nav-logo-section,
+#nav-link-section {
+  flex-basis: calc(100% / 3);
+}
+
+#nav-social-section,
+#nav-contact-section {
+  flex-grow: 1;
+}
+
+main {
+  flex-grow: 1;
+  position: relative;
+}
+
+main > article {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: transform 400ms ease;
+}
+
+main > article[data-status="active"] {
+  transition-delay: 300ms;
+}
+
+main > article[data-status="inactive"] {
+  transform: translateX(-100%);
+}
+
+main > article[data-status="becoming-active-from-before"] {
+  transform: translateX(-50%) scale(0);
+  transition: none;
+}
+
+main > article[data-status="becoming-active-from-after"] {
+  transform: translateX(50%) scale(0);
+  transition: none;
+}
+
+main > article[data-status="after"] {
+  transform: translateX(50%) scale(0);
+}
+
+main > article[data-status="before"] {
+  transform: translateX(-50%) scale(0);
+}
+
+main > article > .article-section {
+  height: 100%;
+  border: 1px solid var(--border-color);
+  display: flex;
+}
+
+main > article > .article-description-section,
+main > article > .article-nav-section {
+  border-top: 1px solid var(--border-color);
+}
+
+main > article:first-child > .article-image-section {
+  background-image: url("https://images.unsplash.com/photo-1668253809615-cff40cd3cb1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
+}
+
+main > article:nth-child(2) > .article-image-section {
+  background-image: url("https://images.unsplash.com/photo-1669778854259-f4e976bfc6fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+}
+
+main > article:nth-child(3) > .article-image-section {
+  background-image: url("https://images.unsplash.com/photo-1669904654513-4e37b66547a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+}
+
+main > article:nth-child(4) > .article-image-section {
+  background-image: url("https://images.unsplash.com/photo-1663490651503-160895b5fa3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+}
+
+main > article > .article-image-section {
+  background-position: center;
+  background-size: cover;
+}
+
+main > article > .article-description-section {
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4rem;
+}
+
+main > article > .article-description-section > p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.25em;
+}
+
+main > article > .article-title-section {
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+}
+
+main > article > .article-title-section * {
+  color: white;
+}
+
+main > article > .article-title-section > h2 {
+  flex-basis: 50%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.5rem;
+  line-height: 3rem;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+main > article > .article-title-section > i {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 4rem;
+}
+
+main > article > .article-nav-section > .article-nav-button {
+  background-color: transparent;
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 3rem;
+  cursor: pointer;
+}
